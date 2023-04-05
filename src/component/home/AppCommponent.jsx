@@ -16,7 +16,6 @@ export const AppButton = styled(Button)(
         border-radius: 2px;
         color: ${theme.palette.primary.contrastText};
         font-family: ${Fonts.INTER};
-
         padding: 12px;
     `
 );
