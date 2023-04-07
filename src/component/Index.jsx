@@ -21,6 +21,7 @@ const Index = () => {
     <Paper
       elevation={0}
       sx={{
+        backgroundColor:"black",
         borderRadius: "0",
         paddingTop: "50px",
         paddingLeft: "40px",

@@ -23,7 +23,7 @@ const MobileDrawer = () => {
 
   const navigate = useNavigate();
   return (
-    <Stack>
+    <Stack >
       <IconButton onClick={handleOpen}>
         <img src="images/menu.svg" />
       </IconButton>

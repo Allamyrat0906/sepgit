@@ -3,8 +3,10 @@ import React, { createContext, useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./component/Home";
 import Index from "./component/Index";
+
 import "./App.css";
 import { useWidth } from "./core/hook";
+import Stories_part from "./component/stories/Stories_part";
 
 const theme = createTheme({
   palette: {
@@ -35,7 +37,7 @@ export const AppContext = createContext();
 const App = () => {
   const width = useWidth();
   const checker = (w) => {
-    return ["xs", "sm"].includes(w);
+    return ["xs", "sm","md"].includes(w);
   };
   const [isMobile, setIsMobile] = useState(checker(width));
   useEffect(() => {
@@ -52,6 +54,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Index />}>
               <Route index element={<Home />} />
+              <Route path="/stories_part" element={<Stories_part/>}/>
             </Route>
           </Routes>
         </BrowserRouter>

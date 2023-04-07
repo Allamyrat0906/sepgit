@@ -5,6 +5,7 @@ import Events from './home/Events'
 import Media from './home/Media'
 import Partners from './home/Partners'
 import Stories from './home/Stories'
+import Other from './home/Other'
 
 
 export const homeStyle={
@@ -20,6 +21,7 @@ const Home = () => {
     <Media/>
     <Partners/>
     <Events/>
+    <Other/>
   </Stack>
   )
 }
