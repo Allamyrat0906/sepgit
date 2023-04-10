@@ -1,5 +1,5 @@
 import { Box, FormControl, MenuItem, Select, Stack } from "@mui/material";
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Colors, Fonts } from "../core/theme";
 import Logo from "./icon/Logo";
 import { AppContext } from "../App";
@@ -8,20 +8,22 @@ import MobileDrawer from "./MobileDrawer";
 
 const Navbar = () => {
   const { mobile } = useContext(AppContext);
-  const [age, setAge] = React.useState("");
+  const [show, setShow] = useState(false);
+  let fruits = [
+    { label: "Turkmen", value: "images/turkmen.png",  },
+    { label: "English", value: "images/a.png" },
+    { label: "Russian", value: "images/russia.png" },
+  ];
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
   return (
     <Stack
+      spacing={1}
       direction={"row"}
       sx={{
         width: "100%",
         padding: "14px 40px 10px 30px",
       }}
     >
-      
       <Stack
         direction={"row"}
         sx={{
@@ -30,6 +32,7 @@ const Navbar = () => {
           borderRadius: "15px",
           justifyContent: "space-between",
           alignItems: "center",
+          padding: "8px",
         }}
         spacing={15}
       >
@@ -38,15 +41,80 @@ const Navbar = () => {
         </Box>
         {mobile ? <MobileDrawer /> : <HideNavbar mobile={mobile} />}
       </Stack>
-      <Stack>
-        <FormControl
-          sx={{
-            display: {
-              xs: "none",
-              md: "none",
-              lg: "block",
-            },
+
+      <Stack
+        sx={{
+          width: "100px",
+          display: {
+            xs: "none",
+            md: "none",
+            lg: "block",
+          },
+          border: "1px solid #464646",
+          borderRadius: "15px",
+        }}
+      >
+        <button
+          onClick={() => setShow(!show)}
+          style={{
+            borderWidth: "0px",
+            backgroundColor: "transparent",
+            padding: "14px 12px 12px 26px",
           }}
+        >
+          <img
+            src="images/language.svg"
+            style={{ width: "36px", height: "36px" }}
+          />
+        </button>
+        <div
+          style={{
+            position: "absolute",
+            width: "100px",
+            top: "64px",
+          }}
+        >
+          {show
+            ? fruits.map((fruit, index) => (
+                <Stack
+                  key={index}
+                  onClick={() => {
+                    setFlag(fruit);
+                    setShow(false);
+                  }}
+                  sx={{
+                    width: "32px",
+                    height: "24px",
+                    marginTop: "8px",
+                    flexDirection: "row",
+                    alignItems: "center",
+                  }}
+                  // value={fruit.value}
+                >
+                  <img
+                    src={fruit.value}
+                    style={{
+                      width: "32px",
+                      height: "24px",
+                      marginRight: "8px ",
+                    }}
+                  />
+
+                  {fruit.label}
+                </Stack>
+              ))
+            : null}
+        </div>
+      </Stack>
+    </Stack>
+  );
+};
+
+export default Navbar;
+
+{
+  /* <FormControl
+        
         >
           <Select
             sx={{
@@ -54,6 +122,7 @@ const Navbar = () => {
               height: "80px",
               width: "90px",
               marginLeft: "10px",
+              backgroundColor: "red",
             }}
             value={age}
             onChange={handleChange}
@@ -62,31 +131,34 @@ const Navbar = () => {
               <img
                 src="images/language.svg"
                 alt="language"
-                style={{ width: "40px" }}
+                style={{ width: "24px", height: "24px" }}
               />
             </MenuItem>
             <MenuItem value={"Turkmen"}>
               <img
                 src="images/turkmen.png"
                 alt="turkmen"
-                style={{ width: "40px" }}
+                style={{
+                  width: "24px",
+                  height: "24px",
+                  // resizeMethod: "resize",
+                }}
               />
             </MenuItem>
             <MenuItem value={"English"}>
-              <img src="images/a.png" alt="english" style={{ width: "40px" }} />
+              <img
+                src="images/a.png"
+                alt="english"
+                style={{ width: "24px", height: "24px" }}
+              />
             </MenuItem>
             <MenuItem value={"Russian"}>
               <img
                 src="images/russia.png"
                 alt="russion"
-                style={{ width: "40px" }}
+                style={{ width: "24px", height: "24px" }}
               />
             </MenuItem>
           </Select>
-        </FormControl>
-      </Stack>
-    </Stack>
-  );
-};
-
-export default Navbar;
+        </FormControl> */
+}

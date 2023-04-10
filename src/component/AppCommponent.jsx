@@ -1,5 +1,5 @@
 import React from 'react'
-import { Fonts } from '../../core/theme';
+import { Fonts } from '../core/theme'
 import { styled, } from "@mui/material/styles";
 import { Button } from '@mui/material';
 
@@ -12,7 +12,7 @@ const AppCommponent = () => {
 export const AppButton = styled(Button)(
     ({ theme}) => `
         background: linear-gradient(102.3deg, ${theme.palette.primary.dark} -4.62%, ${theme.palette.primary.dark} 178.22%);
-        box-shadow: 0px 20px 40px rgba(128, 143, 150, 0.19);
+        
         border-radius: 10px;
         color: ${theme.palette.primary.main.contrastText};
         font-family: ${Fonts.INTER};

@@ -1,12 +1,8 @@
 import { Box, Button, Stack } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import SanlyBilimLogo from "./icon/SanlyBilimLogo";
 import { Colors, Fonts } from "../core/theme";
-import MenuItem from "@mui/material/MenuItem";
 
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
 const styleButton = {
   color: "grey.400",
   textTransform: "none",
@@ -16,6 +12,12 @@ const styleButton = {
 };
 export const HideNavbar = (props) => {
   const [age, setAge] = React.useState("");
+  const [show, setShow] = useState(false);
+  let fruits = [
+    { label: "Turkmen", value: "images/turkmen.png" },
+    { label: "English", value: "images/a.png" },
+    { label: "Russian", value: "images/russia.png" },
+  ];
 
   const handleChange = (event) => {
     setAge(event.target.value);
@@ -33,13 +35,16 @@ export const HideNavbar = (props) => {
       direction={mobile ? "column" : "row"}
       alignItems={"center"}
       spacing={5}
-   
-
     >
-      <Button onClick={() => changeRoute("billboard")} sx={{ ...styleButton }}>
+      <Button onClick={() => changeRoute("bill")} sx={{ ...styleButton }}>
         Billboard
       </Button>
-      <Button onClick={() => changeRoute("stories_part")}  sx={{ ...styleButton }}>Stories</Button>
+      <Button
+        onClick={() => changeRoute("stories_part")}
+        sx={{ ...styleButton }}
+      >
+        Stories
+      </Button>
       <Button sx={{ ...styleButton }}>Media</Button>
       <Button sx={{ ...styleButton }}>Partners</Button>
       <Button sx={{ ...styleButton }}>Events</Button>
@@ -49,51 +54,87 @@ export const HideNavbar = (props) => {
       >
         Search
       </Button>{" "}
-      <Box sx={{display:
-      {
-        lg:"block",
-        md:"block",
-        xs:"none",
-        xs:"none"
-      },
-      pt:1}}> 
-        <img src="/images/Frame_logo.svg" alt="bootcamp"  width={"85%"}fill={Colors.PRIMARY} />
+      <Box
+        sx={{
+          display: {
+            lg: "block",
+            md: "block",
+            xs: "none",
+          },
+          pt: 1,
+        }}
+      >
+        <img
+          src="/images/Frame_logo.svg"
+          alt="bootcamp"
+          width={"85%"}
+          fill={Colors.PRIMARY}
+        />
       </Box>
-      <FormControl sx={{
-        display: {
-          lg:"none"
-        }
-      }}>
-        <Select
-          sx={{
-            borderRadius: "15px",
-            height: "80px",
-            width: "90px",
-            marginLeft: "10px",
+      <Stack
+        sx={{
+          width: "100px",
+          display: {
+            xs: "block",
+            md: "block",
+            lg: "none",
+          },
+          border: "1px solid #464646",
+          borderRadius: "15px",
+        }}
+      >
+        <button
+          onClick={() => setShow(!show)}
+          style={{
+            borderWidth: "0px",
+            backgroundColor: "transparent",
+            padding: "14px 12px 12px 26px",
           }}
-          value={age}
-          onChange={handleChange}
         >
-          <MenuItem><img src="images/language.svg" alt="language"/></MenuItem>
-          <MenuItem value={"Turkmen"}>
-            <img
-              src="images/turkmen.png"
-              alt="turkmen"
-              style={{ width: "50px" }}
-            />
-          </MenuItem>
-          <MenuItem value={"English"}>
-            <img src="images/a.png" alt="english" style={{ width: "50px" }} />
-          </MenuItem>
-          <MenuItem value={"Russian"}>
-            <img
-              src="images/russia.png"
-              alt="russion"
-              style={{ width: "50px" }}
-            />
-          </MenuItem>
-        </Select>
-      </FormControl>
+          <img
+            src="images/language.svg"
+            style={{ width: "36px", height: "36px" }}
+          />
+        </button>
+        <div
+          style={{
+            position: "absolute",
+            width: "100px",
+            top: "64px",
+          }}
+        >
+          {show
+            ? fruits.map((fruit, index) => (
+                <Stack
+                  key={index}
+                  onClick={() => {
+                    setFlag(fruit);
+                    setShow(false);
+                  }}
+                  sx={{
+                    width: "32px",
+                    height: "24px",
+                    marginTop: "8px",
+                    flexDirection: "row",
+                    alignItems: "center",
+                  }}
+                  // value={fruit.value}
+                >
+                  <img
+                    src={fruit.value}
+                    style={{
+                      width: "32px",
+                      height: "24px",
+                      marginRight: "8px ",
+                    }}
+                  />
+
+                  {fruit.label}
+                </Stack>
+              ))
+            : null}
+        </div>
+      </Stack>
     </Stack>
   );
 };

@@ -2,7 +2,7 @@ import { Stack, Grid, Typography, Tab } from "@mui/material";
 import React from "react";
 import { homeStyle } from "../Home";
 import { Fonts } from "../../core/theme";
-import { AppButton } from "./AppCommponent";
+import { AppButton } from "../AppCommponent";
 
 const Stories = () => {
   return (

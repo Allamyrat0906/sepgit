@@ -7,6 +7,8 @@ import Index from "./component/Index";
 import "./App.css";
 import { useWidth } from "./core/hook";
 import Stories_part from "./component/stories/Stories_part";
+import Bill from "./component/Billbord/Bill";
+
 
 const theme = createTheme({
   palette: {
@@ -55,6 +57,7 @@ const App = () => {
             <Route path="/" element={<Index />}>
               <Route index element={<Home />} />
               <Route path="/stories_part" element={<Stories_part/>}/>
+              <Route path="/bill" element={<Bill/>}/>
             </Route>
           </Routes>
         </BrowserRouter>

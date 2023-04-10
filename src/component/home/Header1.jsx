@@ -1,12 +1,20 @@
-import { Box, Button, Grid, Stack, Tab, Typography } from "@mui/material";
 import React, { useContext } from "react";
 import { homeStyle } from "../Home";
 import { AppContext } from "../../App";
+import { Grid, Stack, Typography } from "@mui/material";
 import { Fonts } from "../../core/theme";
 import Group10 from "../icon/Group10";
-import { AppButton } from "./AppCommponent";
+import { AppButton } from "../AppCommponent";
+import { useNavigate } from "react-router-dom";
 
-const Billboard = () => {
+const Header1 = () => {
+  const navigate = useNavigate();
+  function changeRoute(path) {
+    navigate(path);
+    if (props.close) {
+      props.close();
+    }
+  }
   const { mobile } = useContext(AppContext);
   return (
     <Stack sx={{ backgroundColor: "grey.700", ...homeStyle }}>
@@ -16,20 +24,17 @@ const Billboard = () => {
             alignItems={mobile ? "flex-start" : "center"}
             sx={{ width: "100%" }}
           >
-            <Stack
-              spacing={5}
-              sx={{ width: "100%", paddingTop: "123px", paddingLeftL: "100px" }}
-            >
+            <Stack spacing={5} sx={{ width: "100%", paddingTop: "40px" }}>
               <Typography
                 sx={{
                   fontFamily: Fonts.PHILOSOPHER,
                   color: "grey.400",
-                  fontSize: "3.5rem",
-                  paddingLeft: "70px",
+                  fontSize: "3.6rem",
+                  paddingLeft: "40px",
                 }}
               >
                 Новое <br />
-                <div style={{ paddingLeft: "50px" }}>
+                <div style={{ paddingLeft: "50px", fontWeight: "bold" }}>
                   мероприятие <Group10 />
                 </div>
               </Typography>
@@ -37,52 +42,47 @@ const Billboard = () => {
                 sx={{
                   fontFamily: Fonts.INTER,
                   color: "grey.400",
-                  fontSize: "1.5rem",
-                  width: "60%",
-                  paddingLeft: "70px",
+                  fontSize: "1.8rem",
+                  width: "80%",
+                  fontWeight: "bold",
+                  paddingLeft: "40px",
                 }}
               >
                 Что такое soft skills, зачем они нужны и как их развивать?
               </Typography>
-              <Stack
-                sx={{ paddingLeft: "250px", width: "100%", paddingTop: "10px" }}
-              >
+              <Stack sx={{ paddingLeft: "300px", width: "100%" }}>
                 <AppButton
-                  sx={{ width: "180px", fontSize: "100%" }}
+                  sx={{ width: "180px" }}
                   variant="contained"
+                  onClick={() => changeRoute("/bill")}
                 >
                   Подробнее
                 </AppButton>
               </Stack>
-              <Stack
-                spacing={5}
-                sx={{ paddingLeft: "120px", paddingTop: "50px" }}
-                direction={"row"}
-              >
-                <img src="/images/Group_12.svg" alt="Group" />
-                <img src="/images/idea.svg" alt="idea" />
-              </Stack>
+              <img
+                src={"/images/WomanPowerCrowded.svg"}
+                alt={"women"}
+                style={{ width: "90%" }}
+              />
             </Stack>
           </Stack>
         </Grid>
         <Grid item xs={7}>
           <Stack
             sx={{
-              paddingTop: "250px",
-              paddingRight: "30px",
-              position: "static",
+              paddingTop: "40px",
             }}
           >
             <img
-              src={"/images/WomanPowerCrowded.svg"}
+              src={"/images/Group_123.svg"}
               alt={"women"}
               style={{ width: "100%" }}
             />
-          </Stack>{" "}
+          </Stack>
         </Grid>
       </Grid>
     </Stack>
   );
 };
 
-export default Billboard;
+export default Header1;

@@ -7,7 +7,7 @@ import Navbar from "./Navbar";
 
 const Index = () => {
   return (
-    <Paper elevation={"0"}>
+    <Paper elevation={0}>
     <Stack
           direction={"row"}
           sx={{
