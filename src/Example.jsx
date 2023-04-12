@@ -1,68 +1,65 @@
-import { Button, FormControl, Stack } from "@mui/material";
+import { Button, Menu, MenuItem, Tab, Typography } from "@mui/material";
 import React from "react";
-
+import { Fonts } from "./core/theme";
 
 const Example = () => {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
-    <Stack direction={"row"}
-      sx={{
-        backgroundColor: "black",
-        position: "fixed",
-     
-        height: "100px",
-        width: "100%",
-        padding: "14px 40px 10px 30px",
-      }}
-    >
-      <Stack   direction={"row"}
-        sx={{
-          width: "90%",
-          border: "1px solid #464646",
-          borderRadius: "15px",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}></Stack>
-      <Stack>
-
-     
-      <FormControl sx={{
-        display: {
-          lg:"none"
-        }
-      }}>
-        <Select
-          sx={{
-            borderRadius: "15px",
-            height: "80px",
-            width: "90px",
-            marginLeft: "10px",
-          }}
-          value={age}
-          onChange={handleChange}
-        >
-          <MenuItem><img src="images/language.svg" alt="language"/></MenuItem>
-          <MenuItem value={"Turkmen"}>
-            <img
-              src="images/turkmen.png"
-              alt="turkmen"
-              style={{ width: "50px" }}
-            />
-          </MenuItem>
-          <MenuItem value={"English"}>
-            <img src="images/a.png" alt="english" style={{ width: "50px" }} />
-          </MenuItem>
-          <MenuItem value={"Russian"}>
-            <img
-              src="images/russia.png"
-              alt="russion"
-              style={{ width: "50px" }}
-            />
-          </MenuItem>
-        </Select>
-      </FormControl>
-
-      </Stack>
-    </Stack>
+    <div>
+      <Button
+        aria-controls={open ? "basic-menu" : undefined}
+        aria-expanded={open ? "true" : undefined}
+        onClick={handleClick}
+        sx={{ backgroundColor: "black", borderRadius: "10px" }}
+      >
+        <img src="images/language.svg" alt="Language" />
+      </Button>
+      <Menu
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          "aria-labelledby": "basic-button",
+        }}
+        sx={{ width: "15%", position: "fixed" }}
+      >
+        <MenuItem onClick={handleClose}>
+          <img
+            src="/images/turkmen.png"
+            style={{ width: "15%", height: "13px" }}
+            alt="turkmen"
+          />
+          <Typography
+            sx={{ fontFamily: Fonts.PHILOSOPHER, paddingLeft: "7px" }}
+          >
+            Türkmen dili
+          </Typography>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <img src="/images/russia.png" style={{ width: "15%" }} alt="russia" />
+          <Typography
+            sx={{ fontFamily: Fonts.PHILOSOPHER, paddingLeft: "7px" }}
+          >
+            Русский
+          </Typography>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <img src="/images/a.png" style={{ width: "15%" }} alt="english" />
+          <Typography
+            sx={{ fontFamily: Fonts.PHILOSOPHER, paddingLeft: "7px" }}
+          >
+            English
+          </Typography>
+        </MenuItem>
+      </Menu>
+    </div>
   );
 };
 

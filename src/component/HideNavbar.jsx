@@ -1,4 +1,4 @@
-import { Box, Button, Stack } from "@mui/material";
+import { Box, Button, Stack, Typography, Menu, MenuItem } from "@mui/material";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Colors, Fonts } from "../core/theme";
@@ -11,17 +11,15 @@ const styleButton = {
   fontSize: "19px",
 };
 export const HideNavbar = (props) => {
-  const [age, setAge] = React.useState("");
-  const [show, setShow] = useState(false);
-  let fruits = [
-    { label: "Turkmen", value: "images/turkmen.png" },
-    { label: "English", value: "images/a.png" },
-    { label: "Russian", value: "images/russia.png" },
-  ];
-
-  const handleChange = (event) => {
-    setAge(event.target.value);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
   };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   const mobile = props.mobile;
   const navigate = useNavigate();
   function changeRoute(path) {
@@ -73,70 +71,139 @@ export const HideNavbar = (props) => {
       </Box>
       <Stack
         sx={{
-          width: "100px",
-          display: {
-            xs: "block",
-            md: "block",
-            lg: "none",
-          },
           border: "1px solid #464646",
           borderRadius: "15px",
+          justifyContent: "space-between",
+          alignItems: "center",
+          padding: "12px 0px 0px 0px",
+
+          display: {
+            lg: "none",
+            md: "block",
+            xs: "block",
+          },
         }}
       >
-        <button
-          onClick={() => setShow(!show)}
-          style={{
-            borderWidth: "0px",
-            backgroundColor: "transparent",
-            padding: "14px 12px 12px 26px",
-          }}
+        <Button
+          aria-controls={open ? "basic-menu" : undefined}
+          aria-expanded={open ? "true" : undefined}
+          onClick={handleClick}
+          sx={{ backgroundColor: "black", borderRadius: "10px" }}
         >
-          <img
-            src="images/language.svg"
-            style={{ width: "36px", height: "36px" }}
-          />
-        </button>
-        <div
-          style={{
-            position: "absolute",
-            width: "100px",
-            top: "64px",
+          <img src="images/language.svg" alt="Language" />
+        </Button>
+        <Menu
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          MenuListProps={{
+            "aria-labelledby": "basic-button",
           }}
+          sx={{ width: "15%" }}
         >
-          {show
-            ? fruits.map((fruit, index) => (
-                <Stack
-                  key={index}
-                  onClick={() => {
-                    setFlag(fruit);
-                    setShow(false);
-                  }}
-                  sx={{
-                    width: "32px",
-                    height: "24px",
-                    marginTop: "8px",
-                    flexDirection: "row",
-                    alignItems: "center",
-                  }}
-                  // value={fruit.value}
-                >
-                  <img
-                    src={fruit.value}
-                    style={{
-                      width: "32px",
-                      height: "24px",
-                      marginRight: "8px ",
-                    }}
-                  />
-
-                  {fruit.label}
-                </Stack>
-              ))
-            : null}
-        </div>
+          <MenuItem onClick={handleClose}>
+            <img
+              src="/images/turkmen.png"
+              style={{ width: "15%", height: "13px" }}
+              alt="turkmen"
+            />
+            <Typography
+              sx={{ fontFamily: Fonts.PHILOSOPHER, paddingLeft: "7px" }}
+            >
+              Türkmen dili
+            </Typography>
+          </MenuItem>
+          <MenuItem onClick={handleClose}>
+            <img
+              src="/images/russia.png"
+              style={{ width: "15%" }}
+              alt="russia"
+            />
+            <Typography
+              sx={{ fontFamily: Fonts.PHILOSOPHER, paddingLeft: "7px" }}
+            >
+              Русский
+            </Typography>
+          </MenuItem>
+          <MenuItem onClick={handleClose}>
+            <img src="/images/a.png" style={{ width: "15%" }} alt="english" />
+            <Typography
+              sx={{ fontFamily: Fonts.PHILOSOPHER, paddingLeft: "7px" }}
+            >
+              English
+            </Typography>
+          </MenuItem>
+        </Menu>
       </Stack>
     </Stack>
   );
 };
 
 export default HideNavbar;
+
+{
+  /* <Stack
+sx={{
+  width: "100px",
+  display: {
+    xs: "block",
+    md: "block",
+    lg: "none",
+  },
+  border: "1px solid #464646",
+  borderRadius: "15px",
+}}
+>
+<button
+  onClick={() => setShow(!show)}
+  style={{
+    borderWidth: "0px",
+    backgroundColor: "transparent",
+    padding: "14px 12px 12px 26px",
+  }}
+>
+  <img
+    src="images/language.svg"
+    style={{ width: "36px", height: "36px" }}
+  />
+</button>
+<div
+  style={{
+    position: "absolute",
+    width: "100px",
+    top: "64px",
+  }}
+>
+  {show
+    ? fruits.map((fruit, index) => (
+        <Stack
+          key={index}
+          onClick={() => {
+            setFlag(fruit);
+            setShow(false);
+          }}
+          sx={{
+            width: "32px",
+            height: "24px",
+            marginTop: "8px",
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+          // value={fruit.value}
+        >
+          <img
+            src={fruit.value}
+            style={{
+              width: "32px",
+              height: "24px",
+              marginRight: "8px ",
+            }}
+          />
+
+          {fruit.label}
+        </Stack>
+      ))
+    : null}
+</div>
+</Stack> */
+}

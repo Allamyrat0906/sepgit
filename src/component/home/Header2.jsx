@@ -4,10 +4,16 @@ import { homeStyle } from "../Home";
 import { Fonts } from "../../core/theme";
 import Group10 from "../icon/Group10";
 import { AppButton } from "../AppCommponent";
+import { AppContext } from "../../App";
+import { useContext } from "react";
 
 const Header2 = () => {
+  const { mobile } = useContext(AppContext);
   return (
-    <Stack sx={{ ...homeStyle, backgroundColor: "#1E1E1E" }}>
+    <Stack
+      alignItems={mobile ? "flex-start" : "center"}
+      sx={{ ...homeStyle, backgroundColor: "#1E1E1E" }}
+    >
       <Stack sx={{ padding: "30px 0px 0px 328px" }}>
         <Typography
           sx={{
@@ -60,25 +66,25 @@ const Header2 = () => {
         </Stack>
       </Stack>
       <Stack direction={"row"} justifyContent={"space-between"}>
-        <img
-          style={{ width: "40%", zIndex: 5 }}
-          src="images/Layer6.svg"
-          alt="Layer"
-        />
-        <Box sx={{ marginLeft: "-60px", marginTop: "30px" }}>
+        <Box>
+          <img style={{ width: "95%" }} src="images/Layer6.svg" alt="Layer" />
+        </Box>
+
+        <Box sx={{ marginTop: "30px", justifyContent: "space-between" }}>
           <img src="/images/Group_12.svg" alt="Group" />
+          <img src="/images/idea.svg" alt="idea" />
+        </Box>
+        <Box sx={{}}>
           <img
-            style={{ paddingLeft: "25px" }}
-            src="/images/idea.svg"
-            alt="idea"
+            style={{ borderRadius: "15px", width: "100%" }}
+            src="images/Layer7.svg"
+            alt="Layer"
           />
         </Box>
-        <img
-          style={{ width: "30%", borderRadius: "20px" }}
-          src="images/Layer7.svg"
-          alt="Layer"
-        />
       </Stack>
+      <Box sx={{}}>
+        <img style={{ width: "100%" }} src="/images/Mask.svg" alt="Mask" />
+      </Box>
     </Stack>
   );
 };
