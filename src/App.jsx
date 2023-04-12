@@ -9,7 +9,6 @@ import { useWidth } from "./core/hook";
 import Stories_part from "./component/stories/Stories_part";
 import Bill from "./component/Billbord/Bill";
 
-
 const theme = createTheme({
   palette: {
     mode: "dark",
@@ -26,6 +25,7 @@ const theme = createTheme({
       contrastText: "#090000",
     },
     grey: {
+      1000: "black",
       900: "#191D21",
       800: "#656F77",
       700: "#ACB8C2",
@@ -39,7 +39,7 @@ export const AppContext = createContext();
 const App = () => {
   const width = useWidth();
   const checker = (w) => {
-    return ["xs", "sm","md"].includes(w);
+    return ["xs", "sm", "md"].includes(w);
   };
   const [isMobile, setIsMobile] = useState(checker(width));
   useEffect(() => {
@@ -56,8 +56,8 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Index />}>
               <Route index element={<Home />} />
-              <Route path="/stories_part" element={<Stories_part/>}/>
-              <Route path="/bill" element={<Bill/>}/>
+              <Route path="/stories_part" element={<Stories_part />} />
+              <Route path="/bill" element={<Bill />} />
             </Route>
           </Routes>
         </BrowserRouter>

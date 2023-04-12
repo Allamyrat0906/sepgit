@@ -71,7 +71,6 @@ export const HideNavbar = (props) => {
       </Box>
       <Stack
         sx={{
-          border: "1px solid #464646",
           borderRadius: "15px",
           justifyContent: "space-between",
           alignItems: "center",
@@ -96,6 +95,7 @@ export const HideNavbar = (props) => {
           anchorEl={anchorEl}
           open={open}
           onClose={handleClose}
+          disableScrollLock={true}
           MenuListProps={{
             "aria-labelledby": "basic-button",
           }}
