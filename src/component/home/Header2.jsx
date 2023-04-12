@@ -66,11 +66,7 @@ const Header2 = () => {
             </AppButton>
           </Stack>
         </Stack>
-        <Stack
-          direction={"row"}
-          justifyContent={"space-between"}
-          sx={{ zIndex: 1 }}
-        >
+        <Stack direction={"row"} justifyContent={"space-between"}>
           <Box>
             <img style={{ width: "95%" }} src="images/Layer6.svg" alt="Layer" />
           </Box>
@@ -79,7 +75,7 @@ const Header2 = () => {
             <img src="/images/Group_12.svg" alt="Group" />
             <img src="/images/idea.svg" alt="idea" />
           </Box>
-          <Box sx={{ zIndex: 1500 }}>
+          <Box>
             <img
               style={{ borderRadius: "15px", width: "100%" }}
               src="images/Layer7.svg"
@@ -87,7 +83,7 @@ const Header2 = () => {
             />
           </Box>
         </Stack>
-        <Box sx={{ zIndex: 1300 }} bottom={"0px"}>
+        <Box sx={{ zIndex: 1 }} bottom="0px">
           <img style={{ width: "100%" }} src="/images/Mask.svg" alt="Mask" />
         </Box>
       </Stack>
