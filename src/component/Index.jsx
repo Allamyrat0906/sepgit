@@ -8,30 +8,30 @@ import Navbar from "./Navbar";
 const Index = () => {
   return (
     <Paper elevation={0}>
-    <Stack
-          direction={"row"}
-          sx={{
-            position: "fixed",
-            backgroundColor: "black",
-            width: "100%",
-          }}
-    >
-      <Navbar />
-    </Stack>
-    <Paper
-      elevation={0}
-      sx={{
-        backgroundColor:"black",
-        borderRadius: "0",
-        paddingTop: "50px",
-        paddingLeft: "40px",
-        paddingRight: "40px",
-      }}
-    >
-      <Outlet />
-      <Footer />
+      <Stack
+        direction={"row"}
+        sx={{
+          position: "fixed",
+          backgroundColor: "black",
+          width: "100%",
+        }}
+      >
+        <Navbar />
+      </Stack>
+      <Paper
+        elevation={0}
+        sx={{
+          backgroundColor: "black",
+          borderRadius: "0",
+          paddingTop: "50px",
+          paddingLeft: "30px",
+          paddingRight: "40px",
+        }}
+      >
+        <Outlet />
+        <Footer />
+      </Paper>
     </Paper>
-  </Paper>
   );
 };
 
