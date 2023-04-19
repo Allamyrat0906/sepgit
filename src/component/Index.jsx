@@ -14,6 +14,7 @@ const Index = () => {
           position: "fixed",
           backgroundColor: "black",
           width: "100%",
+          zIndex: 100,
         }}
       >
         <Navbar />

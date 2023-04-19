@@ -9,6 +9,9 @@ const styleButton = {
   fontFamily: Fonts.INTER,
   fontWeight: "500",
   fontSize: "19px",
+  ":active": {
+    bgcolor: "#519fff",
+  },
 };
 export const HideNavbar = (props) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -34,7 +37,12 @@ export const HideNavbar = (props) => {
       alignItems={"center"}
       spacing={5}
     >
-      <Button onClick={() => changeRoute("bill")} sx={{ ...styleButton }}>
+      <Button
+        onClick={() => changeRoute("billboard")}
+        sx={{
+          ...styleButton,
+        }}
+      >
         Billboard
       </Button>
       <Button
@@ -43,7 +51,9 @@ export const HideNavbar = (props) => {
       >
         Stories
       </Button>
-      <Button sx={{ ...styleButton }}>Media</Button>
+      <Button onClick={() => changeRoute("videos")} sx={{ ...styleButton }}>
+        Media
+      </Button>
       <Button sx={{ ...styleButton }}>Partners</Button>
       <Button sx={{ ...styleButton }}>Events</Button>
       <Button

@@ -1,66 +1,52 @@
-import { Button, Menu, MenuItem, Tab, Typography } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import React from "react";
-import { Fonts } from "./core/theme";
+import { A11y } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-const Example = () => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+const PartnerSliper = () => {
   return (
-    <div>
-      <Button
-        aria-controls={open ? "basic-menu" : undefined}
-        aria-expanded={open ? "true" : undefined}
-        onClick={handleClick}
-        sx={{ backgroundColor: "black", borderRadius: "10px" }}
-      >
-        <img src="images/language.svg" alt="Language" />
-      </Button>
-      <Menu
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        MenuListProps={{
-          "aria-labelledby": "basic-button",
-        }}
-        sx={{ width: "15%", position: "fixed" }}
-      >
-        <MenuItem onClick={handleClose}>
-          <img
-            src="/images/turkmen.png"
-            style={{ width: "15%", height: "13px" }}
-            alt="turkmen"
-          />
-          <Typography
-            sx={{ fontFamily: Fonts.PHILOSOPHER, paddingLeft: "7px" }}
-          >
-            Türkmen dili
-          </Typography>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <img src="/images/russia.png" style={{ width: "15%" }} alt="russia" />
-          <Typography
-            sx={{ fontFamily: Fonts.PHILOSOPHER, paddingLeft: "7px" }}
-          >
-            Русский
-          </Typography>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <img src="/images/a.png" style={{ width: "15%" }} alt="english" />
-          <Typography
-            sx={{ fontFamily: Fonts.PHILOSOPHER, paddingLeft: "7px" }}
-          >
-            English
-          </Typography>
-        </MenuItem>
-      </Menu>
-    </div>
+    <Stack spacing={4} direction={"row"}>
+      <Swiper modules={[A11y]} spaceBetween={50} slidesPerView={4} loop>
+        <SwiperSlide>
+          <Box sx={{ margin: "0px 0px 0px -70px" }}>
+            <img src="/images/Other.svg" alt="Other" />
+          </Box>
+        </SwiperSlide>
+        <SwiperSlide>
+          <Box sx={{ margin: "0px 0px 0px -70px" }}>
+            <img style={{ width: "35%" }} src="/images/idea.svg" alt="idea" />
+          </Box>
+        </SwiperSlide>
+        <SwiperSlide>
+          <Box sx={{ margin: "0px 0px 0px -230px" }}>
+            <img
+              style={{ width: "320px", padding: "30px" }}
+              src="/images/BootcampSanly.svg"
+              alt="Bootcamp"
+            />
+          </Box>
+        </SwiperSlide>
+        <SwiperSlide>
+          <Box sx={{ margin: "0px 0px 0px -150px" }}>
+            <img
+              style={{ width: "45%", padding: "20px" }}
+              src="/images/LaunchLifeLogo.svg"
+              alt="Lounch"
+            />
+          </Box>
+        </SwiperSlide>
+        <SwiperSlide>
+          <Box sx={{ margin: "0px 0px 0px -190px" }}>
+            <img
+              style={{ width: "320px", padding: "30px" }}
+              src="/images/BootcampSanly.svg"
+              alt="Other"
+            />
+          </Box>
+        </SwiperSlide>
+      </Swiper>
+    </Stack>
   );
 };
 
-export default Example;
+export default PartnerSliper;

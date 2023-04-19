@@ -5,8 +5,10 @@ import Logo from "./icon/Logo";
 import { AppContext } from "../App";
 import HideNavbar from "./HideNavbar";
 import MobileDrawer from "./MobileDrawer";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const { mobile } = useContext(AppContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);

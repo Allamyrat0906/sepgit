@@ -1,21 +1,49 @@
-import { Box, Grid, Stack, Typography } from "@mui/material";
-import React from "react";
-import { homeStyle } from "../Home";
-import { Fonts } from "../../core/theme";
 import Group10 from "../icon/Group10";
-import { AppButton } from "../AppCommponent";
-import { AppContext } from "../../App";
+import React from "react";
+import {
+  Box,
+  Grid,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import { useContext } from "react";
+import { AppContext } from "../../App";
+import { Fonts } from "../../core/theme";
+import { AppButton } from "../AppCommponent";
+import { homeStyle } from "../Home";
 
 const Header2 = () => {
   const { mobile } = useContext(AppContext);
+  const theme2 = useTheme();
+  const isDesktop = useMediaQuery(theme2.breakpoints.up("lg"));
+  const isTablet = useMediaQuery(theme2.breakpoints.only("md"));
+  const isMobile = useMediaQuery(theme2.breakpoints.down("md"));
+
+  const marginTop = {
+    xs: "-50px",
+    sm: "-50px",
+    md: "-50px",
+    lg: "0px",
+  };
   return (
     <div>
       <Stack
         alignItems={mobile ? "flex-start" : "center"}
-        sx={{ ...homeStyle, backgroundColor: "#1E1E1E" }}
+        justifyContent={"space-between"}
+        sx={{
+          borderRadius: "30px",
+          backgroundColor: "#1E1E1E",
+          height: "800px",
+          marginTop: marginTop,
+        }}
       >
-        <Stack sx={{ padding: "30px 0px 0px 328px" }}>
+        <Stack
+          sx={{
+            justifyContent: "end",
+          }}
+        >
           <Typography
             sx={{
               fontSize: "4.0rem",
@@ -66,26 +94,60 @@ const Header2 = () => {
             </AppButton>
           </Stack>
         </Stack>
-        <Stack direction={"row"} justifyContent={"space-between"}>
-          <Box>
-            <img style={{ width: "95%" }} src="images/Layer6.svg" alt="Layer" />
-          </Box>
 
-          <Box sx={{ marginTop: "30px", justifyContent: "space-between" }}>
-            <img src="/images/Group_12.svg" alt="Group" />
-            <img src="/images/idea.svg" alt="idea" />
-          </Box>
-          <Box>
+        <Stack
+          style={{ width: "100%", bottom: 0 }}
+          alignItems={"center"}
+          justifyContent={"end"}
+        >
+          <Box sx={{}}>
             <img
-              style={{ borderRadius: "15px", width: "100%" }}
-              src="images/Layer7.svg"
-              alt="Layer"
+              style={{ width: "95%", paddingLeft: "30px" }}
+              src="/images/Mask.svg"
+              alt="Mask"
             />
           </Box>
+          <Stack
+            sx={{ position: "absolute" }}
+            direction={"row"}
+            justifyContent={"space-between"}
+          >
+            <Box
+              sx={{
+                display: {
+                  sm: "none",
+                  xs: "none",
+                  md: "none",
+                  lg: "block",
+                },
+              }}
+            >
+              <img
+                style={{ width: "523px", paddingBottom: "-20px" }}
+                src="images/Layer6.svg"
+                alt="Layer"
+              />
+            </Box>
+
+            <Box sx={{ marginTop: "80px", justifyContent: "space-between" }}>
+              <img src="/images/Group_12.svg" alt="Group" />
+              <img src="/images/idea.svg" alt="idea" />
+            </Box>
+            <Box
+              sx={{
+                alignContent: {
+                  md: "flex-end",
+                },
+              }}
+            >
+              <img
+                style={{ borderRadius: "20px", width: "485px" }}
+                src="images/Layer7.svg"
+                alt="Layer"
+              />
+            </Box>
+          </Stack>
         </Stack>
-        <Box sx={{ zIndex: 1 }} bottom="0px">
-          <img style={{ width: "100%" }} src="/images/Mask.svg" alt="Mask" />
-        </Box>
       </Stack>
     </div>
   );

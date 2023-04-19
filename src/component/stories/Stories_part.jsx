@@ -1,17 +1,20 @@
-import { Card, Container, Grid, Paper, Stack } from "@mui/material";
+import { Card, Container, Grid, Box, Stack } from "@mui/material";
 import React from "react";
 
 const Stories_part = () => {
   return (
     <Stack sx={{ height: "100vh", backgroundColor: "grey.1000" }}>
-      <Stack sx={{ marginTop: "60px" }}>
+      <Stack sx={{ marginTop: "50px" }}>
         <Stack
           sx={{
-            padding: "8px 0px 8px 0px",
-            borderRadius: "25px",
+            backgroundColor: "#1E1E1E",
+            border: "1px solid #464646",
+            borderRadius: "40px",
           }}
         >
-          <img src="images/Srories.svg" alt="stories" width={"40%"} />
+          <Box>
+            <img src="images/Srories.svg" alt="stories" width={"40%"} />
+          </Box>
         </Stack>
       </Stack>
       <Stack direction={"row"} sx={{ paddingTop: "50px" }}>

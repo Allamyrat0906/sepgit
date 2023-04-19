@@ -9,19 +9,22 @@ import { useWidth } from "./core/hook";
 import Stories_part from "./component/stories/Stories_part";
 import Bill from "./component/Billbord/Bill";
 
+import Videos from "./Media/Videos";
+import Podcasts from "./Media/Podcasts";
+
 const theme = createTheme({
   palette: {
     mode: "dark",
     primary: {
       main: "#487FFF",
-      dark: "##458eff",
-      light: "##519fff",
+      dark: "#458eff",
+      light: "#519fff",
       contrastText: "#FEFEFE",
     },
     secondary: {
       main: "#B975EF2B",
-      dark: "##a85790",
-      light: "##b872a2",
+      dark: "#141414",
+      light: "#b872a2",
       contrastText: "#090000",
     },
     grey: {
@@ -57,7 +60,9 @@ const App = () => {
             <Route path="/" element={<Index />}>
               <Route index element={<Home />} />
               <Route path="/stories_part" element={<Stories_part />} />
-              <Route path="/bill" element={<Bill />} />
+              <Route path="/billboard" element={<Bill />} />
+              <Route path="/videos/podcast" element={<Podcasts />} />
+              <Route path="/videos" element={<Videos />} />
             </Route>
           </Routes>
         </BrowserRouter>
