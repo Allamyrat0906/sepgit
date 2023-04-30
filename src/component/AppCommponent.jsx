@@ -10,9 +10,8 @@ const AppCommponent = () => {
 export const AppButton = styled(Button)(
   ({ theme }) => `
         background: linear-gradient(102.3deg, ${theme.palette.primary.dark} -4.62%, ${theme.palette.primary.dark} 178.22%);
-        
         border-radius: 10px;
-        color: ${theme.palette.primary.main.contrastText};
+
         font-family: ${Fonts.INTER};
         padding: 12px;
         position: static;

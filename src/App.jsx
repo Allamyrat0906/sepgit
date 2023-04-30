@@ -20,6 +20,7 @@ const theme = createTheme({
       dark: "#458eff",
       light: "#519fff",
       contrastText: "#FEFEFE",
+      buttonStyle: "#313131",
     },
     secondary: {
       main: "#B975EF2B",
@@ -41,6 +42,7 @@ const theme = createTheme({
 export const AppContext = createContext();
 const App = () => {
   const width = useWidth();
+  const [applanguage, setApplanguage] = useState("tm");
   const checker = (w) => {
     return ["xs", "sm", "md"].includes(w);
   };
@@ -52,6 +54,8 @@ const App = () => {
     <AppContext.Provider
       value={{
         mobile: isMobile,
+        applanguage: applanguage,
+        setApplanguage: setApplanguage,
       }}
     >
       <ThemeProvider theme={theme}>

@@ -43,8 +43,8 @@ const Home = () => {
       <Stack spacing={5} sx={{ marginTop: "70px" }}>
         <Billboard_home />
         <Header2 />
-        <SwiperStyleHome data={data.podcasts} />
-        <Stories_home data={data.stories} />
+        <SwiperStyleHome />
+        <Stories_home />
         <MediaHome />
         <Partnerss />
         <PartnerSliper />
@@ -54,3 +54,5 @@ const Home = () => {
 };
 
 export default Home;
+// data={data.podcasts}
+// data={data.stories}

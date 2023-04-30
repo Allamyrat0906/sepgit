@@ -24,7 +24,20 @@ const Navbar = () => {
       direction={"row"}
       sx={{
         width: "100%",
-        padding: "14px 40px 10px 30px",
+        paddingTop: "1%",
+        paddingBottom: "1%",
+        paddingRight: {
+          lg: "3%",
+          md: "3%",
+          xs: "5%",
+          sm: "5%",
+        },
+        paddingLeft: {
+          lg: "3%",
+          md: "3%",
+          xs: "5%",
+          sm: "5%",
+        },
       }}
     >
       <Stack

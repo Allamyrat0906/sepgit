@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { homeStyle } from "../Home";
 import { Box, Button, Card, Grid, Stack, Typography } from "@mui/material";
 import { Fonts } from "../../core/theme";
+import { AxiosInstance } from "../../Axios/AxiosInstance.mjs";
 
 const styleCardStories = {
   height: "200px",
@@ -9,6 +10,24 @@ const styleCardStories = {
   borderRadius: "20px",
 };
 const Stories_home = () => {
+  const [data, setData] = useState();
+  const [loading, setLoading] = useState(true);
+
+  function getData() {
+    setLoading(true);
+    AxiosInstance.get("/sepgit/story/get-all-stories")
+      .then((response) => {
+        setLoading(false);
+        setData(response.data.body);
+      })
+      .catch((err) => {
+        setLoading(false);
+      });
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <Stack
       sx={{
@@ -37,7 +56,17 @@ const Stories_home = () => {
             >
               I would like to tell...
             </Typography>
-            <Box sx={{ padding: "90px 0px 0px 0px" }}>
+            <Box
+              sx={{
+                padding: "90px 0px 0px 0px",
+                display: {
+                  lg: "block",
+                  md: "none",
+                  sm: "none",
+                  xs: "none",
+                },
+              }}
+            >
               <img
                 style={{ width: "80%" }}
                 src="/images/Stories_picture_avatar.svg"

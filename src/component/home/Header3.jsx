@@ -1,13 +1,21 @@
 import { Box, Grid, Stack, Typography } from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
 import { homeStyle } from "../Home";
 
 import { Colors, Fonts } from "../../core/theme";
 import { AppButton } from "../AppCommponent";
+import { AppContext } from "../../App";
+import { getLanguageValue } from "../../core/utils.mjs";
 
-const Header3 = () => {
+const Header3 = ({ item }) => {
+  const { applanguage } = useContext(AppContext);
   return (
-    <Stack sx={{ ...homeStyle, backgroundColor: "#1E1E1E" }}>
+    <Stack
+      sx={{
+        ...homeStyle,
+        backgroundColor: "#1E1E1E",
+      }}
+    >
       <Grid container>
         <Grid item xs={5}>
           <Stack direction={"row"}>
@@ -17,14 +25,14 @@ const Header3 = () => {
             <Stack direction={"column"}>
               <Stack direction={"row"} sx={{ padding: "50px 0px 0px 70px" }}>
                 <Box>
-                  <img src="images/Avatar.svg" alt="Header" />
+                  <img src={item.image} alt="Header" />
                 </Box>
                 <Stack
                   direction={"column"}
                   sx={{ padding: "20px 0px 0px 30px" }}
                 >
                   <Typography sx={{ fontFamily: Fonts.PHILOSOPHER }}>
-                    Aylar Dowletgeldiyeva
+                    {`${item.name} ${item.surname}`}
                   </Typography>
 
                   <Typography
@@ -33,7 +41,7 @@ const Header3 = () => {
                       fontFamily: Fonts.INTER,
                     }}
                   >
-                    Art director
+                    {item.job}
                   </Typography>
                 </Stack>
               </Stack>
@@ -44,7 +52,7 @@ const Header3 = () => {
                   padding: "50px 0px 0px 70px",
                 }}
               >
-                From economics student, to art director
+                {getLanguageValue(applanguage, item, "topic")}
               </Typography>
               <Box
                 sx={{

@@ -2,6 +2,7 @@ import Group10 from "../icon/Group10";
 import React from "react";
 import {
   Box,
+  Button,
   Grid,
   Stack,
   Typography,
@@ -13,13 +14,17 @@ import { AppContext } from "../../App";
 import { Fonts } from "../../core/theme";
 import { AppButton } from "../AppCommponent";
 import { homeStyle } from "../Home";
+import { useState } from "react";
+import { AxiosInstance } from "../../Axios/AxiosInstance.mjs";
+import { useEffect } from "react";
+import Loading from "../Loading";
 
 const Header2 = () => {
   const { mobile } = useContext(AppContext);
-  const theme2 = useTheme();
-  const isDesktop = useMediaQuery(theme2.breakpoints.up("lg"));
-  const isTablet = useMediaQuery(theme2.breakpoints.only("md"));
-  const isMobile = useMediaQuery(theme2.breakpoints.down("md"));
+  // const theme2 = useTheme();
+  // const isDesktop = useMediaQuery(theme2.breakpoints.up("lg"));
+  // const isTablet = useMediaQuery(theme2.breakpoints.only("md"));
+  // const isMobile = useMediaQuery(theme2.breakpoints.down("md"));
 
   const marginTop = {
     xs: "-50px",
@@ -41,12 +46,22 @@ const Header2 = () => {
       >
         <Stack
           sx={{
-            justifyContent: "end",
+            paddingLeft: {
+              sm: "10%",
+              xs: "10%",
+              md: "20%",
+              lg: "25%",
+            },
           }}
         >
           <Typography
             sx={{
-              fontSize: "4.0rem",
+              fontSize: {
+                lg: "76px",
+                md: "70px",
+                sm: "70px",
+                xs: "70px",
+              },
               fontFamily: Fonts.PHILOSOPHER,
               fontWeight: "10px",
             }}
@@ -55,23 +70,49 @@ const Header2 = () => {
           </Typography>
           <Typography
             sx={{
-              fontSize: "6.5rem",
               fontFamily: Fonts.PHILOSOPHER,
               fontWeight: "bold",
-              padding: "0 0px 0px 200px",
-              marginTop: "-30px ",
+              paddingLeft: {
+                sm: "0%",
+                xs: "0%",
+                md: "20%",
+                lg: "25%",
+              },
+
+              marginTop: "-20px ",
+              fontSize: {
+                lg: "100%",
+                md: "90%",
+                sm: "100%",
+                xs: "100%",
+              },
             }}
           >
             bloom <Group10 />
           </Typography>
           <Typography
-            width={"42%"}
             sx={{
-              padding: "0 0px 0px 200px",
-              fontSize: "1.1rem",
+              paddingLeft: {
+                sm: "0%",
+                xs: "0%",
+                md: "20%",
+                lg: "25%",
+              },
+              fontSize: {
+                lg: "100%",
+                md: "100%",
+                sm: "30px",
+                xs: "20px",
+              },
               marginTop: "-10px ",
               fontFamily: Fonts.INTER,
               color: "#747474  ",
+              width: {
+                lg: "42%",
+                md: "48%",
+                sm: "75%",
+                xs: "100%",
+              },
             }}
           >
             To close the gender gap completely, Woman must try to do things that
@@ -79,15 +120,51 @@ const Header2 = () => {
             challenge to others.
           </Typography>
           <Stack
-            direction={"row"}
+            direction={{
+              lg: "row",
+              md: "row",
+              sm: "column",
+              xs: "column",
+            }}
             spacing={5}
-            sx={{ padding: "0 0px 0px 200px", marginTop: "20px" }}
+            sx={{
+              paddingLeft: {
+                sm: "0%",
+                xs: "0%",
+                md: "20%",
+                lg: "25%",
+              },
+              marginTop: {
+                lg: "10%",
+                md: "10%",
+                sm: "35%",
+                xs: "50%",
+              },
+            }}
           >
-            <AppButton sx={{ width: "120px" }} variant="contained">
+            <AppButton
+              sx={{
+                width: {
+                  lg: "18%",
+                  md: "18%",
+                  sm: "90%",
+                  xs: "90%",
+                },
+              }}
+              variant="contained"
+            >
               Stories
             </AppButton>
             <AppButton
-              sx={{ width: "120px", backgroundColor: "#313131" }}
+              sx={{
+                width: {
+                  lg: "18%",
+                  md: "18%",
+                  sm: "90%",
+                  xs: "90%",
+                },
+                background: "primary.buttonStyle",
+              }}
               variant="contained"
             >
               Billboard
@@ -129,19 +206,34 @@ const Header2 = () => {
               />
             </Box>
 
-            <Box sx={{ marginTop: "80px", justifyContent: "space-between" }}>
+            <Box
+              sx={{
+                marginTop: "100px",
+                marginBottom: {
+                  sm: "250px",
+                  xs: "300px",
+                },
+                justifyContent: "space-between",
+              }}
+            >
               <img src="/images/Group_12.svg" alt="Group" />
               <img src="/images/idea.svg" alt="idea" />
             </Box>
             <Box
               sx={{
-                alignContent: {
-                  md: "flex-end",
+                display: {
+                  xs: "none",
+                  sm: "none",
+                  md: "block",
+                  lg: "block",
                 },
               }}
             >
               <img
-                style={{ borderRadius: "20px", width: "485px" }}
+                style={{
+                  borderRadius: "20px",
+                  width: "485px",
+                }}
                 src="images/Layer7.svg"
                 alt="Layer"
               />

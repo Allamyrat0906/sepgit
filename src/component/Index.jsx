@@ -24,9 +24,24 @@ const Index = () => {
         sx={{
           backgroundColor: "black",
           borderRadius: "0",
-          paddingTop: "50px",
-          paddingLeft: "30px",
-          paddingRight: "40px",
+          paddingTop: {
+            lg: "3%",
+            md: "3%",
+            sm: "3%",
+            xs: "3%",
+          },
+          paddingLeft: {
+            lg: "3%",
+            md: "3%",
+            sm: "3%",
+            xs: "3%",
+          },
+          paddingRight: {
+            lg: "3%",
+            md: "3%",
+            sm: "3%",
+            xs: "3%",
+          },
         }}
       >
         <Outlet />
@@ -37,3 +52,8 @@ const Index = () => {
 };
 
 export default Index;
+
+// {loading ? (
+//   <Loading />
+// ) : (
+//   }

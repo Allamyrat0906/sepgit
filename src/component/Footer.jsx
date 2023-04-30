@@ -14,7 +14,18 @@ const Footer = () => {
       }}
     >
       <Grid container>
-        <Grid item xs={6}>
+        <Grid
+          item
+          xs={6}
+          sx={{
+            display: {
+              lg: "block",
+              md: "none",
+              sm: "none",
+              xs: "none",
+            },
+          }}
+        >
           <Stack sx={{ padding: "45px 0px 0px 150px" }}>
             <Typography
               sx={{
@@ -41,7 +52,10 @@ const Footer = () => {
                 <Box display={"flex"}>
                   <img src="/images/message.svg" alt="message" />
                   <Typography
-                    sx={{ fontFamily: Fonts.PHILOSOPHER, paddingLeft: "10px" }}
+                    sx={{
+                      fontFamily: Fonts.PHILOSOPHER,
+                      paddingLeft: "10px",
+                    }}
                   >
                     sepgit@info.com
                   </Typography>

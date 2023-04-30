@@ -9,7 +9,7 @@ import "swiper/css/scrollbar";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Header3 from "./Header3";
 
-const SwiperStyleHome = () => {
+const SwiperStyleHome = (props) => {
   return (
     <Swiper
       modules={[Navigation, Pagination, A11y]}
@@ -20,18 +20,15 @@ const SwiperStyleHome = () => {
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
     >
-      <SwiperSlide>
-        <Header3 />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Header3 />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Header3 />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Header3 />
-      </SwiperSlide>
+      {props.data && props.data.length
+        ? props.data.map((it, i) => {
+            return (
+              <SwiperSlide key={`slide-${i}`}>
+                <Header3 item={it} />
+              </SwiperSlide>
+            );
+          })
+        : null}
     </Swiper>
   );
 };
