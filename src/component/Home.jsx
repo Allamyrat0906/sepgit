@@ -9,6 +9,10 @@ import Billboard_home from "./home/Billboard_home";
 import MediaHome from "./home/MediaHome";
 import Partnerss from "./home/Partnerss";
 import PartnerSliper from "./home/PartnerSliper";
+import Loading from "./Loading";
+import { useState } from "react";
+import { useEffect } from "react";
+import { AxiosInstance } from "../Axios/AxiosInstance.mjs";
 
 export const homeStyle = {
   height: "800px",
@@ -16,16 +20,36 @@ export const homeStyle = {
   backgroundColor: "secondary.main",
 };
 const Home = () => {
+  const [data, setData] = useState();
+  const [loading, setLoading] = useState(true);
+
+  function getData() {
+    setLoading(true);
+    AxiosInstance.get("/sepgit/other/get-home")
+      .then((response) => {
+        setLoading(false);
+        setData(response.data.body);
+      })
+      .catch((err) => {
+        setLoading(false);
+      });
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
   return (
-    <Stack spacing={5} sx={{ marginTop: "70px" }}>
-      <Billboard_home />
-      <Header2 />
-      <SwiperStyleHome />
-      <Stories_home />
-      <MediaHome />
-      <Partnerss />
-      <PartnerSliper />
-    </Stack>
+    <div>
+      <Stack spacing={5} sx={{ marginTop: "70px" }}>
+        <Billboard_home />
+        <Header2 />
+        <SwiperStyleHome data={data.podcasts} />
+        <Stories_home data={data.stories} />
+        <MediaHome />
+        <Partnerss />
+        <PartnerSliper />
+      </Stack>
+    </div>
   );
 };
 
