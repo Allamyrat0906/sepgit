@@ -27,8 +27,8 @@ const Index = () => {
           paddingTop: {
             lg: "3%",
             md: "3%",
-            sm: "3%",
-            xs: "3%",
+            sm: "6%",
+            xs: "6%",
           },
           paddingLeft: {
             lg: "3%",

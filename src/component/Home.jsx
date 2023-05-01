@@ -1,5 +1,5 @@
 import { Stack } from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
 
 import Header2 from "./home/Header2";
 
@@ -13,6 +13,7 @@ import Loading from "./Loading";
 import { useState } from "react";
 import { useEffect } from "react";
 import { AxiosInstance } from "../Axios/AxiosInstance.mjs";
+import { AppContext } from "../App";
 
 export const homeStyle = {
   height: "800px",
@@ -22,6 +23,7 @@ export const homeStyle = {
 const Home = () => {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
+  const { mobile } = useContext(AppContext);
 
   function getData() {
     setLoading(true);
@@ -38,13 +40,16 @@ const Home = () => {
   useEffect(() => {
     getData();
   }, []);
-  return (
+
+  return loading ? (
+    <Loading />
+  ) : (
     <div>
-      <Stack spacing={5} sx={{ marginTop: "70px" }}>
+      <Stack spacing={5} marginTop={mobile ? "30px" : "70px"}>
         <Billboard_home />
         <Header2 />
-        <SwiperStyleHome />
-        <Stories_home />
+        <SwiperStyleHome data={data.podcasts} />
+        <Stories_home data={data} />
         <MediaHome />
         <Partnerss />
         <PartnerSliper />

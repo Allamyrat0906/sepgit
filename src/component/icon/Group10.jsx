@@ -4,7 +4,7 @@ const Group10 = () => {
   return (
     <svg
       width="16"
-      height="80"
+      height="60"
       viewBox="0 0 16 80"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

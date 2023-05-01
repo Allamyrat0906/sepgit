@@ -1,7 +1,7 @@
 import * as React from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import Dialog from "@mui/material/Dialog";
-import Logo from "./icon/Logo"
+import Logo from "./icon/Logo";
 import Slide from "@mui/material/Slide";
 import { Box, IconButton, Stack } from "@mui/material";
 import { useNavigate } from "react-router-dom";
@@ -23,7 +23,7 @@ const MobileDrawer = () => {
 
   const navigate = useNavigate();
   return (
-    <Stack >
+    <Stack>
       <IconButton onClick={handleOpen}>
         <img src="images/menu.svg" />
       </IconButton>
@@ -57,5 +57,3 @@ const MobileDrawer = () => {
 };
 
 export default MobileDrawer;
-
-

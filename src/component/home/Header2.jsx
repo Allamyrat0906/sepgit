@@ -21,227 +21,133 @@ import Loading from "../Loading";
 
 const Header2 = () => {
   const { mobile } = useContext(AppContext);
-  // const theme2 = useTheme();
+  //const theme2 = useTheme();
   // const isDesktop = useMediaQuery(theme2.breakpoints.up("lg"));
   // const isTablet = useMediaQuery(theme2.breakpoints.only("md"));
   // const isMobile = useMediaQuery(theme2.breakpoints.down("md"));
 
-  const marginTop = {
-    xs: "-50px",
-    sm: "-50px",
-    md: "-50px",
-    lg: "0px",
-  };
   return (
-    <div>
+    <Stack
+      alignItems={mobile ? "center" : "center"}
+      justifyContent={"space-between"}
+      sx={{
+        borderRadius: "30px",
+        backgroundColor: "#1E1E1E",
+        height: "800px",
+        width: "100%",
+      }}
+    >
       <Stack
-        alignItems={mobile ? "flex-start" : "center"}
-        justifyContent={"space-between"}
-        sx={{
-          borderRadius: "30px",
-          backgroundColor: "#1E1E1E",
-          height: "800px",
-          marginTop: marginTop,
-        }}
+        alignItems={mobile ? "flex-center" : "center"}
+        justifyContent={"center"}
+        paddingTop={mobile ? "60px" : "10px"}
+        padding={mobile ? "20px" : "0px"}
       >
-        <Stack
+        <Typography
+          fontSize={mobile ? "40px" : "65px"}
+          paddingRight={mobile ? "0px" : "300px"}
           sx={{
-            paddingLeft: {
-              sm: "10%",
-              xs: "10%",
-              md: "20%",
-              lg: "25%",
-            },
+            fontFamily: Fonts.PHILOSOPHER,
+            fontWeight: "10px",
           }}
         >
-          <Typography
-            sx={{
-              fontSize: {
-                lg: "76px",
-                md: "70px",
-                sm: "70px",
-                xs: "70px",
-              },
-              fontFamily: Fonts.PHILOSOPHER,
-              fontWeight: "10px",
-            }}
-          >
-            Let equality
-          </Typography>
-          <Typography
-            sx={{
-              fontFamily: Fonts.PHILOSOPHER,
-              fontWeight: "bold",
-              paddingLeft: {
-                sm: "0%",
-                xs: "0%",
-                md: "20%",
-                lg: "25%",
-              },
-
-              marginTop: "-20px ",
-              fontSize: {
-                lg: "100%",
-                md: "90%",
-                sm: "100%",
-                xs: "100%",
-              },
-            }}
-          >
-            bloom <Group10 />
-          </Typography>
-          <Typography
-            sx={{
-              paddingLeft: {
-                sm: "0%",
-                xs: "0%",
-                md: "20%",
-                lg: "25%",
-              },
-              fontSize: {
-                lg: "100%",
-                md: "100%",
-                sm: "30px",
-                xs: "20px",
-              },
-              marginTop: "-10px ",
-              fontFamily: Fonts.INTER,
-              color: "#747474  ",
-              width: {
-                lg: "42%",
-                md: "48%",
-                sm: "75%",
-                xs: "100%",
-              },
-            }}
-          >
-            To close the gender gap completely, Woman must try to do things that
-            as men have tried. When they fail, their failure must be but a
-            challenge to others.
-          </Typography>
-          <Stack
-            direction={{
-              lg: "row",
-              md: "row",
-              sm: "column",
-              xs: "column",
-            }}
-            spacing={5}
-            sx={{
-              paddingLeft: {
-                sm: "0%",
-                xs: "0%",
-                md: "20%",
-                lg: "25%",
-              },
-              marginTop: {
-                lg: "10%",
-                md: "10%",
-                sm: "35%",
-                xs: "50%",
-              },
-            }}
-          >
-            <AppButton
-              sx={{
-                width: {
-                  lg: "18%",
-                  md: "18%",
-                  sm: "90%",
-                  xs: "90%",
-                },
-              }}
-              variant="contained"
-            >
-              Stories
-            </AppButton>
-            <AppButton
-              sx={{
-                width: {
-                  lg: "18%",
-                  md: "18%",
-                  sm: "90%",
-                  xs: "90%",
-                },
-                background: "primary.buttonStyle",
-              }}
-              variant="contained"
-            >
-              Billboard
-            </AppButton>
-          </Stack>
-        </Stack>
-
-        <Stack
-          style={{ width: "100%", bottom: 0 }}
-          alignItems={"center"}
-          justifyContent={"end"}
+          Let equality
+        </Typography>
+        <Typography
+          fontSize={mobile ? "55px" : "100px"}
+          marginTop={mobile ? "-15px" : "-30px"}
+          sx={{
+            fontFamily: Fonts.PHILOSOPHER,
+            fontWeight: "bold",
+            display: "flex",
+          }}
         >
-          <Box sx={{}}>
-            <img
-              style={{ width: "95%", paddingLeft: "30px" }}
-              src="/images/Mask.svg"
-              alt="Mask"
-            />
+          bloom
+          <Box>
+            <Group10 />
           </Box>
-          <Stack
-            sx={{ position: "absolute" }}
-            direction={"row"}
-            justifyContent={"space-between"}
+        </Typography>
+        <Typography
+          paddingLeft={mobile ? "2%" : "10%"}
+          width={mobile ? "80% " : "40%"}
+          sx={{
+            fontFamily: Fonts.INTER,
+            color: "#747474  ",
+          }}
+        >
+          To close the gender gap completely, Woman must try to do things that
+          as men have tried. When they fail, their failure must be but a
+          challenge to others.
+        </Typography>
+        <Stack
+          direction={mobile ? "column" : "row"}
+          spacing={3}
+          marginTop={mobile ? "100%" : "5%"}
+          width={mobile ? "100%" : "30%"}
+        >
+          <AppButton
+            sx={{
+              width: "100%",
+            }}
+            variant="contained"
           >
-            <Box
-              sx={{
-                display: {
-                  sm: "none",
-                  xs: "none",
-                  md: "none",
-                  lg: "block",
-                },
-              }}
-            >
-              <img
-                style={{ width: "523px", paddingBottom: "-20px" }}
-                src="images/Layer6.svg"
-                alt="Layer"
-              />
-            </Box>
-
-            <Box
-              sx={{
-                marginTop: "100px",
-                marginBottom: {
-                  sm: "250px",
-                  xs: "300px",
-                },
-                justifyContent: "space-between",
-              }}
-            >
-              <img src="/images/Group_12.svg" alt="Group" />
-              <img src="/images/idea.svg" alt="idea" />
-            </Box>
-            <Box
-              sx={{
-                display: {
-                  xs: "none",
-                  sm: "none",
-                  md: "block",
-                  lg: "block",
-                },
-              }}
-            >
-              <img
-                style={{
-                  borderRadius: "20px",
-                  width: "485px",
-                }}
-                src="images/Layer7.svg"
-                alt="Layer"
-              />
-            </Box>
-          </Stack>
+            Stories
+          </AppButton>
+          <AppButton
+            sx={{
+              width: "100%",
+              backgroundColor: "primary.buttonStyle",
+            }}
+            variant="contained"
+          >
+            Billboard
+          </AppButton>
         </Stack>
       </Stack>
-    </div>
+
+      <Stack
+        style={{ width: "100%", bottom: 0 }}
+        alignItems={"center"}
+        justifyContent={"end"}
+      >
+        <Box sx={{}}>
+          <img style={{ width: "95%" }} src="/images/Mask.svg" alt="Mask" />
+        </Box>
+        <Stack
+          sx={{ position: "absolute" }}
+          direction={"row"}
+          justifyContent={"space-between"}
+        >
+          <Box sx={{}} display={mobile ? "none" : "block"}>
+            <img
+              style={{ width: "510px" }}
+              src="images/Layer6.svg"
+              alt="Layer"
+            />
+          </Box>
+
+          <Box
+            marginBottom={mobile ? "100%" : ""}
+            marginTop={mobile ? "" : "10%"}
+          >
+            <img src="/images/Group_12.svg" alt="Group" />
+            <img src="/images/idea.svg" alt="idea" />
+          </Box>
+          <Box display={mobile ? "none" : "block"}>
+            <img
+              style={{
+                borderRadius: "20px",
+                width: "475px",
+                bottom: 0,
+                right: 0,
+              }}
+              src="images/Layer7.svg"
+              alt="Layer"
+            />
+          </Box>
+        </Stack>
+      </Stack>
+    </Stack>
   );
 };
 

@@ -26,19 +26,9 @@ const Navbar = () => {
         width: "100%",
         paddingTop: "1%",
         paddingBottom: "1%",
-        paddingRight: {
-          lg: "3%",
-          md: "3%",
-          xs: "5%",
-          sm: "5%",
-        },
-        paddingLeft: {
-          lg: "3%",
-          md: "3%",
-          xs: "5%",
-          sm: "5%",
-        },
       }}
+      paddingLeft={(mobile ? "4%" : "3%", "3%")}
+      paddingRight={(mobile ? "4%" : "3%", "3%")}
     >
       <Stack
         direction={"row"}
@@ -48,7 +38,7 @@ const Navbar = () => {
           borderRadius: "15px",
           justifyContent: "space-between",
           alignItems: "center",
-          padding: "8px",
+          padding: "7px",
         }}
         spacing={15}
       >

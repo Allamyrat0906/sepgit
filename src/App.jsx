@@ -44,7 +44,7 @@ const App = () => {
   const width = useWidth();
   const [applanguage, setApplanguage] = useState("tm");
   const checker = (w) => {
-    return ["xs", "sm", "md"].includes(w);
+    return ["xs", "sm"].includes(w);
   };
   const [isMobile, setIsMobile] = useState(checker(width));
   useEffect(() => {

@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const GridItem = () => {
-  return (
-    <div>GridItem</div>
-  )
-}
+  return <div>GridItem</div>;
+};
 
-export default GridItem
+export default GridItem;
