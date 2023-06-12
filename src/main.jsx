@@ -1,13 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import i18n from "./i188/TranslateLang";
-import Examplei118 from "./i188/Examplei118";
 import App from "./App";
+import BasicMenu from "./Example";
 import Example from "./Example";
+import Appb from "./Example";
+import BillbordCircleImage from "./component/Home/Home_billbord/BillbordCircleImage";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Example />
+    <App />
   </React.StrictMode>
 );
