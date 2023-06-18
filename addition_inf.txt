@@ -1,0 +1,6 @@
+Type
+a=28               int
+b=2.90             float
+c="Hello"          string(str)
+d=True             bool
+e=None             NoneType
